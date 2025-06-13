@@ -1,0 +1,43 @@
+/**
+ * Example configuration file for the application.
+ * 
+ * - port: Application port
+ * - cron_enabled: Enable or disable cron jobs
+ * - redis: Redis connection settings
+ * - database: Database connection settings
+ * - telegram: Telegram bot settings
+ *   - bot_enabled: Global enable/disable for Telegram bot
+ *   - bot_update_command_enabled: Enable updating all bot commands before start
+ *   - group_alert_id: If bot is added to a group as admin, send message to this group
+ *   - token: Telegram bot token
+ *   - allowed_users: Array of allowed users with their permitted commands
+ */
+
+
+export default () => ({
+  port: 3000,
+  cron_enabled: false,
+  redis: {
+    host: '127.0.0.1' || 'redis',
+    port: 6379
+  },
+  database: {
+    host: '127.0.0.1',
+    pass: 'pass',
+    user: 'postgres',
+    port: 5432,
+    name: 'mybase'
+  },
+  telegram: {
+    bot_enabled: true,
+    bot_update_command_enabled: false,
+    group_alert_id: 111111,
+    token: 'qwerty',
+    allowed_users: [{
+      id: 1111111111,
+      allowedCommand: ['*']
+    }],
+  },
+});
+
+
